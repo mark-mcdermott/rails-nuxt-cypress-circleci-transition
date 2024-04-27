@@ -1,9 +1,9 @@
-class UsersController < ApplicationController
+class StarwarsController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = Starwar.all
     render json: @users
   end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = Starwar.new
     render json: @user
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    @user = Starwar.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = Starwar.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
